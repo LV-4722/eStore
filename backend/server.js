@@ -1,11 +1,20 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import connectDB from "./config/db.js";
 
 // configure dotenv
 dotenv.config();
 
+// connect to database
+connectDB();
+
 // rest object
 const app = express();
+
+// middleware
+app.use(express.json());
+app.use(morgan("dev"));
 
 // rest api
 app.get("/", (req, res) => {
