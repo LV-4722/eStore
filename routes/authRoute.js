@@ -1,5 +1,8 @@
 import express from "express";
-import { registerController } from "../controllers/authController.js";
+import {
+  forgotPasswordController,
+  registerController,
+} from "../controllers/authController.js";
 import { loginController } from "../controllers/authController.js";
 import { testController } from "../controllers/authController.js";
 import { requireSignIn } from "../middlewares/authMiddleware.js";
@@ -14,6 +17,9 @@ router.post("/register", registerController);
 
 // LOGIN
 router.post("/login", loginController);
+
+// forgot password
+router.post("/forgot-password", forgotPasswordController);
 
 // protected route auth
 router.get("/user-auth", requireSignIn, (req, res) => {
