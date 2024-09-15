@@ -4,20 +4,21 @@ import {
   deleteProductController,
   getProductController,
   getSingleProductController,
+  productCategoryController,
   productCountController,
   productFiltersController,
   productListController,
   productPhotoController,
+  relatedProductController,
+  searchProductController,
   updateProductController,
 } from "../controllers/productController.js";
-import { requireSignIn, isAdmin } from "../middlewares/authMiddleware.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import formidable from "express-formidable";
 
 const router = express.Router();
 
-// routes
-
-// create product
+//routes
 router.post(
   "/create-product",
   requireSignIn,
@@ -25,8 +26,7 @@ router.post(
   formidable(),
   createProductController
 );
-
-// update product
+//routes
 router.put(
   "/update-product/:pid",
   requireSignIn,
@@ -35,16 +35,16 @@ router.put(
   updateProductController
 );
 
-// get all products
+//get products
 router.get("/get-product", getProductController);
 
-// get single product
+//single product
 router.get("/get-product/:slug", getSingleProductController);
 
-// get photo
+//get photo
 router.get("/product-photo/:pid", productPhotoController);
 
-// delete product
+//delete rproduct
 router.delete("/delete-product/:pid", deleteProductController);
 
 //filter product
@@ -55,5 +55,14 @@ router.get("/product-count", productCountController);
 
 //product per page
 router.get("/product-list/:page", productListController);
+
+//search product
+router.get("/search/:keyword", searchProductController);
+
+//similar product
+router.get("/related-product/:pid/:cid", relatedProductController);
+
+//category wise product
+router.get("/product-category/:slug", productCategoryController);
 
 export default router;
