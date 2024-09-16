@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Spinner";
 
-export default function AdminRoute() {
+export default function PrivateRoute() {
   const [ok, setOk] = useState(false);
-  const { auth } = useAuth();
+  const [auth, setAuth] = useAuth();
 
   useEffect(() => {
     const authCheck = async () => {

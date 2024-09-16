@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../components/layout/Layout";
-import AdminMenu from "../../components/layout/AdminMenu";
+import Layout from "./../../components/layout/Layout";
+import AdminMenu from "./../../components/layout/AdminMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { Select } from "antd";
-
+import { useNavigate } from "react-router-dom";
 const { Option } = Select;
 
 const CreateProduct = () => {
@@ -36,6 +35,7 @@ const CreateProduct = () => {
     getAllCategory();
   }, []);
 
+  //create product function
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
@@ -63,14 +63,14 @@ const CreateProduct = () => {
   };
 
   return (
-    <Layout title={"CreateProduct | AdminDashboard | eStore"}>
-      <div className="container-fluid m-3 p-3">
+    <Layout title={"Dashboard - Create Product"}>
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h3>Create Product</h3>
+            <h1>Create Product</h1>
             <div className="m-1 w-75">
               <Select
                 bordered={false}
@@ -130,6 +130,7 @@ const CreateProduct = () => {
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
+
               <div className="mb-3">
                 <input
                   type="number"

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../components/layout/Layout";
 import UserMenu from "../../components/layout/UserMenu";
-import { useAuth } from "../../context/auth";
+import Layout from "./../../components/layout/Layout";
 import axios from "axios";
+import { useAuth } from "../../context/auth";
 import moment from "moment";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const { auth, setAuth } = useAuth();
+  const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
       const { data } = await axios.get("/api/v1/auth/orders");
@@ -20,9 +20,8 @@ const Orders = () => {
   useEffect(() => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
-
   return (
-    <Layout title={"Your Orders | eStore"}>
+    <Layout title={"Your Orders"}>
       <div className="container-flui p-3 m-3 dashboard">
         <div className="row">
           <div className="col-md-3">

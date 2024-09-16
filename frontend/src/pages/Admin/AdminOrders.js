@@ -18,7 +18,7 @@ const AdminOrders = () => {
   ]);
   const [changeStatus, setCHangeStatus] = useState("");
   const [orders, setOrders] = useState([]);
-  const { auth } = useAuth();
+  const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
       const { data } = await axios.get("/api/v1/auth/all-orders");

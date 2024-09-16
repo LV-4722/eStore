@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 const Profile = () => {
   //context
-  const { auth, setAuth } = useAuth();
+  const [auth, setAuth] = useAuth();
   //state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ const Profile = () => {
         phone,
         address,
       });
-      if (data?.error) {
+      if (data?.errro) {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
@@ -51,13 +51,13 @@ const Profile = () => {
   };
   return (
     <Layout title={"Your Profile"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 dashboard">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
-            <div className="form-container ">
+          <div className="col-md-8">
+            <div className="form-container" style={{ marginTop: "-40px" }}>
               <form onSubmit={handleSubmit}>
                 <h4 className="title">USER PROFILE</h4>
                 <div className="mb-3">
