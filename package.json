@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix ./frontend",
-    "dev": "concurrently \"npm run start\" \"npm run client\""
+    "backend": "nodemon server.js",
+    "frontend": "npm start --prefix ./frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "keywords": [],
-  "author": "",
+  "author": "rudeCactus",
   "license": "MIT",
   "description": "",
   "dependencies": {

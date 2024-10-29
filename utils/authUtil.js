@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcrypt"; // for hashing pwd
 
 export const hashPassword = async (password) => {
   try {

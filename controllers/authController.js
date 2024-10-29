@@ -1,3 +1,7 @@
+// Description: All Auth related controllers are here like
+// user authentication like: register, login, forgot password, update profile,
+// and order management like: get orders, get all orders, order status
+
 import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
 
@@ -56,7 +60,7 @@ export const registerController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Errro in Registeration",
+      message: "Error in Registeration",
       error,
     });
   }
@@ -89,7 +93,7 @@ export const loginController = async (req, res) => {
       });
     }
     //token
-    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
     res.status(200).send({
@@ -164,7 +168,7 @@ export const testController = (req, res) => {
   }
 };
 
-//update prfole
+//update profile
 export const updateProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;

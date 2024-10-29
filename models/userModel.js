@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // to remove whitespaces
     },
     email: {
       type: String,
       required: true,
-      unique: true,
+      unique: true, // only one user shud be with one mail id
     },
     password: {
       type: String,
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: Number,
-      default: 0,
+      default: 0, // 0->user, 1->admin
     },
   },
   { timestamps: true }

@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"; // handles routes and middlewares
 import {
   registerController,
   loginController,
@@ -9,10 +9,11 @@ import {
   getAllOrdersController,
   orderStatusController,
 } from "../controllers/authController.js";
-import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js"; // isAdmin check if authenticated user has admin privileges
+// requireSignIn checks if user is authenticated
 
 //router object
-const router = express.Router();
+const router = express.Router(); // instance  of express Router to handle different routes related to auth and user mgmt
 
 //routing
 //REGISTER || METHOD POST

@@ -15,7 +15,7 @@ const Register = () => {
 
   // form function
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // to prevent page from reloading
     try {
       const res = await axios.post("/api/v1/auth/register", {
         name,
@@ -38,10 +38,10 @@ const Register = () => {
   };
 
   return (
-    <Layout title="Register - Ecommer App">
+    <Layout title="Register @eStore">
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
-          <h4 className="title">REGISTER FORM</h4>
+          <h4 className="title">Create Account</h4>
           <div className="mb-3">
             <input
               type="text"
@@ -61,7 +61,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Email "
+              placeholder="Enter Your Email Id "
               required
             />
           </div>
@@ -83,7 +83,7 @@ const Register = () => {
               onChange={(e) => setPhone(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Phone"
+              placeholder="Enter Your Mobile No."
               required
             />
           </div>
@@ -105,7 +105,7 @@ const Register = () => {
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="What is Your Favorite sports"
+              placeholder="What is Your Favorite sports?"
               required
             />
           </div>

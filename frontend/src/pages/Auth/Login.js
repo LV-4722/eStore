@@ -28,6 +28,7 @@ const Login = () => {
           user: res.data.user,
           token: res.data.token,
         });
+        // to save data in local storage, to prevent data loss on page reload
         localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
       } else {

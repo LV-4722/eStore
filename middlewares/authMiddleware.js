@@ -1,3 +1,5 @@
+// Description: checks authorization of user for protected routes
+
 import JWT from "jsonwebtoken";
 import userModel from "../models/userModel.js";
 
@@ -15,7 +17,7 @@ export const requireSignIn = async (req, res, next) => {
   }
 };
 
-//admin acceess
+//admin access
 export const isAdmin = async (req, res, next) => {
   try {
     const user = await userModel.findById(req.user._id);

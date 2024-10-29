@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet"; // for SEO
 import { Toaster } from "react-hot-toast";
 const Layout = ({ children, title, description, keywords, author }) => {
   return (
@@ -25,10 +25,10 @@ const Layout = ({ children, title, description, keywords, author }) => {
 };
 
 Layout.defaultProps = {
-  title: "Ecommerce app - shop now",
+  title: "eStore | Your one-stop shop for all your needs",
   description: "mern stack project",
-  keywords: "mern,react,node,mongodb",
-  author: "Techinfoyt",
+  keywords: "mern, MERN, react, reactJS, node, node.js, mongodb, mongoDB",
+  author: "rudeCactus",
 };
 
 export default Layout;
